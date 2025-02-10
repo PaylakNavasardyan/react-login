@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .entryButtons {
@@ -44,4 +43,17 @@
 
 .signup {
     background: linear-gradient(to right, rgb(24, 136, 24), black);
+}
+
+@media screen and (max-width: 470px) {
+    .entryButtons {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .entryButtons {
+        flex-direction: column;
+        height: 120px;
+    }
 }
