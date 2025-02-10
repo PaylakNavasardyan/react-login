@@ -1,0 +1,47 @@
+.entry {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.entryButtons {
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    button  {
+        width: 200px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+    }
+}
+
+.entryImage {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 70px;
+    }
+}
+
+.login {
+    background: linear-gradient(to right, black, forestgreen);
+}
+
+.signup {
+    background: linear-gradient(to right, rgb(24, 136, 24), black);
+}
