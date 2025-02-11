@@ -11,7 +11,7 @@ export default function Entry() {
       </div>
       
       <div className={classes.entryButtons}>
-        <button className={classes.login}>Log  In</button>
+        <Link to='/login'><button className={classes.login}>Log  In</button></Link>
         
         <Link to='/signup'><button className={classes.signup}>Sign Up</button></Link>
       </div>
