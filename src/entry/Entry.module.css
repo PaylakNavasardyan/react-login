@@ -54,6 +54,6 @@
 @media screen and (max-width: 440px) {
     .entryButtons {
         flex-direction: column;
-        height: 120px;
+        height: 220px;
     }
 }

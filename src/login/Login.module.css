@@ -72,3 +72,69 @@ form {
         }
     }
 }
+
+@media screen and (max-width: 450px) {
+    .loginBody {
+        width: 380px;
+    }
+
+    .loginText {
+        h2 {
+            font-size: 30px;
+        }
+    }
+
+    form {
+        .loginForms {
+            input {
+                width: 250px;
+            }
+            img {
+                transform: translateX(135px);
+            }
+        }
+        button {
+            width: 325px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .loginBody {
+        width: 320px;
+    }
+
+    form {
+        .loginForms {
+            input {
+                width: 200px;
+            }
+            img {
+                transform: translateX(110px);
+            }
+        }
+        button {
+            width: 265px;
+        }
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .loginBody {
+        width: 280px;
+    }
+
+    form {
+        .loginForms {
+            input {
+                width: 180px;
+            }
+            img {
+                transform: translateX(100px);
+            }
+        }
+        button {
+            width: 245px;
+        }
+    }
+}
