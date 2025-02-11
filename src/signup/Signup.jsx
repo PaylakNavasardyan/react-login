@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from './Signup.module.css';
 import icon from '../Icons';
 import { useState } from 'react';
