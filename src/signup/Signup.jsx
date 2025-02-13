@@ -20,8 +20,6 @@ export default function Signup() {
 
     if (password !== copyPassword) {
       setError("password didn't match");
-      setUserName('');
-      setEmail('');
       setPassword('');
       setCopyPassword('');
 
@@ -41,10 +39,10 @@ export default function Signup() {
       });
 
       if (updateProfile) {
-        let firstChar = user.displayName.slice(0,1);
+        let firstChar = user.displayName.slice(0,1).toUpperCase();
         setAboutUser(firstChar);
       }
-
+      
       console.log('user is registered', user);
 
       localStorage.setItem("user", JSON.stringify({
