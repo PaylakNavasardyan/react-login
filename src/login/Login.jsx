@@ -6,10 +6,10 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ export default function Login() {
         })
       );
 
-      navigate('/mainPage')
+      navigate('/mainPage');
       
       setError("");
     } catch (error) {

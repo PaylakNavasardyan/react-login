@@ -14,8 +14,6 @@ export default function Signup() {
 
   const [error, setError] = useState('');
 
-  const [aboutUser, setAboutUser] = useState('');
-
   const navigate = useNavigate();
 
   const registration = async(e) => {
@@ -41,11 +39,6 @@ export default function Signup() {
         displayName: userName,
       });
 
-      if (updateProfile) {
-        let firstChar = user.displayName.slice(0,1).toUpperCase();
-        setAboutUser(firstChar);
-      }
-      
       console.log('user is registered', user);
 
       localStorage.setItem("user", JSON.stringify({
