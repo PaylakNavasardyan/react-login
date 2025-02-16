@@ -4,6 +4,7 @@ import icon from '../Icons';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth/cordova';
 import { auth } from '../Firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const [userName, setUserName] = useState('');
@@ -14,6 +15,8 @@ export default function Signup() {
   const [error, setError] = useState('');
 
   const [aboutUser, setAboutUser] = useState('');
+
+  const navigate = useNavigate();
 
   const registration = async(e) => {
     e.preventDefault();
@@ -51,6 +54,8 @@ export default function Signup() {
         displayName: user.displayName,
         accessToken: user.accessToken,
       }));
+
+      navigate('/mainPage');
 
       setError('');
       setUserName('');
