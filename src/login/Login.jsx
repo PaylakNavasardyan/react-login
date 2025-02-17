@@ -20,7 +20,7 @@ export default function Login() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      console.log("Login successful", user);
+      console.log("Login successful");
 
       localStorage.setItem(
         "user",
