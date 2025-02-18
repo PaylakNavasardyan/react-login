@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import classes from './Main.module.css';
 import icon from '../Icons';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from "../Firebase";
 
 export default function Main() {
     const [showData, setShowData] = useState(false);
@@ -16,12 +17,33 @@ export default function Main() {
 
     const currentUserEmail = userData.email;
     
+    const navigate = useNavigate();
+
+    const deleteCheck = () => {
+        let deleteUser = prompt('If you really want to delete your account, please write your username down', '');
+        if (deleteUser === currentUserName) {
+            deleteUserAccount();
+            navigate('/');
+        } else {
+            alert('deletion failed');
+        };
+    };
+
+    const deleteUserAccount = async() => {
+        try {
+            await auth.currentUser.delete();
+            console.log('user deleted successfully')
+        } catch(error) {
+            console.log('error', error);
+        }
+    };
+
   return (
     <div className={classes.mainPage}>
         <div className={classes.mainPageHeader}> 
             <img src={icon.registration} alt = 'logo'/> 
 
-            <div className={classes.mainPageDatas} style={{height: showData ? '280px' : '80px'}}>
+            <div className={classes.mainPageDatas} style={{height: showData ? '360px' : '80px'}}>
                 <div className={classes.mainPageFirstLatter} onClick={handleClick}>
                     <p>{firstLatter}</p>
                 </div>
@@ -31,7 +53,8 @@ export default function Main() {
                         <li>{currentUserEmail}</li>
                     </ul>
 
-                    <button>Loge Out</button> 
+                    <Link to='/'> <button>Exit</button> </Link>
+                    <button onClick={deleteCheck}>Log Out</button>
                 </div>  
             </div> 
         </div>

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Signup.module.css';
 import icon from '../Icons';
-import { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth/cordova';
 import { auth } from '../Firebase';
 import { useNavigate } from 'react-router-dom';

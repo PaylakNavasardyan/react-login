@@ -43,6 +43,8 @@ export default function Login() {
       } else {
         setError("login error " + error.message);
       }
+
+      setPassword('');
       setTimeout(() => setError(""), 5000);
     }
   };
