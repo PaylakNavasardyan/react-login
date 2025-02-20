@@ -1,7 +1,7 @@
 import React, { useState }  from 'react'
 import classes from './Main.module.css';
 import icon from '../Icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth } from "../Firebase";
 
 export default function Main() {
@@ -19,6 +19,28 @@ export default function Main() {
     
     const navigate = useNavigate();
 
+    const exitCheck = async() => {
+        let userConfirmed = window.confirm('Do you want to exit?');
+        if (userConfirmed) {
+            await exitUser();
+            navigate('/');
+        } else {
+            console.log('User clicked NO!');
+        };
+    };
+
+    const exitUser = () => {
+        try {
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
+            localStorage.removeItem('isLoggedIn');
+
+            console.log('user exited successfully');
+        } catch (error) {
+            console.log('error', error);
+        };
+    };
+
     const deleteCheck = () => {
         let deleteUser = prompt('If you really want to delete your account, please write your username down', '');
         if (deleteUser === currentUserName) {
@@ -32,10 +54,14 @@ export default function Main() {
     const deleteUserAccount = async() => {
         try {
             await auth.currentUser.delete();
-            console.log('user deleted successfully')
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
+            localStorage.removeItem('isLoggedIn');
+
+            console.log('user deleted successfully');
         } catch(error) {
             console.log('error', error);
-        }
+        };
     };
 
   return (
@@ -53,7 +79,7 @@ export default function Main() {
                         <li>{currentUserEmail}</li>
                     </ul>
 
-                    <Link to='/'> <button>Exit</button> </Link>
+                    <button onClick={exitCheck}>Exit</button>
                     <button onClick={deleteCheck}>Log Out</button>
                 </div>  
             </div> 

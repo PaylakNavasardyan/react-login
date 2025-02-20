@@ -40,12 +40,14 @@ export default function Signup() {
 
       console.log('user is registered', user);
 
-      localStorage.setItem("user", JSON.stringify({
+      localStorage.setItem('user', JSON.stringify({
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
         accessToken: user.accessToken,
       }));
+
+      localStorage.setItem('isLoggedIn', true);
 
       navigate('/mainPage');
 
